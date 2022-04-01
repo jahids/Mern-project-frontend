@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './style.css'
 
 const Login = () => {
@@ -8,7 +9,7 @@ const Login = () => {
     <div class="container-login100">
         <div class="wrap-login100 mb-5">
             <div class="login100-pic js-tilt" data-tilt>
-                <img src="https://i.ibb.co/n83RHjj/685-6854970-react-logo-png-png-download-logo-png-reactjs-removebg-preview.png" alt="IMG"/>
+                <img src="https://www.ictamilaonline.com/wp-content/uploads/2021/06/138-1388103_user-login-icon-login.png" alt="IMG"/>
             </div>
 
             <form class="login100-form validate-form mb-5">
@@ -48,10 +49,10 @@ const Login = () => {
                 </div>
 
                 <div class="text-center p-t-136">
-                    <a class="txt2" href="#">
+                  <Link to={'/register'}>
                         Create your Account
                         <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                    </a>
+                    </Link>
                 </div>
             </form>
         </div>

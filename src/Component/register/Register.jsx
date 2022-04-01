@@ -1,70 +1,65 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     return (
-<header>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 col-xl-9 mx-auto">
-        <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
-          <div class="card-img-left d-none d-md-flex">
-          
-          </div>
-          <div class="card-body p-4 p-sm-5">
-            <h5 class="card-title text-center mb-5 fw-light fs-5">Register</h5>
-            
-            <form>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 mb-5">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="https://www.ictamilaonline.com/wp-content/uploads/2021/06/138-1388103_user-login-icon-login.png" alt="IMG"/>
+            </div>
 
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" required autofocus/>
-                <label for="floatingInputUsername">Username</label>
-              </div>
+            <form class="login100-form validate-form mb-5">
+                <span class="login100-form-title">
+                    Member Register
+                </span>
 
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com"/>
-                <label for="floatingInputEmail">Email address</label>
-              </div>
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input class="input100" type="text" name="email" placeholder="Email"/>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </span>
+                </div>
 
-              <hr/>
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input class="input100" type="password" name="pass" placeholder="Password"/>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                </div>
+                
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                {/* <label for="cars">Chose the role</label> */}
+                <select placeholder='Role' id="cars" class="input100">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                </select>
+  
+                    
+                </div>
 
-              <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"/>
-                <label for="floatingPassword">Password</label>
-              </div>
 
-              <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingPasswordConfirm" placeholder="Confirm Password"/>
-                <label for="floatingPasswordConfirm">Confirm Password</label>
-              </div>
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                        Register
+                    </button>
+                </div>
 
-              <div class="d-grid mb-2">
-                <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Register</button>
-              </div>
+                
 
-              <a class="d-block text-center mt-2 small" href="#">Have an account? Sign In</a>
-
-              <hr class="my-4"/>
-
-              <div class="d-grid mb-2">
-                <button class="btn btn-lg btn-google btn-login fw-bold text-uppercase" type="submit">
-                  <i class="fab fa-google me-2"></i> Sign up with Google
-                </button>
-              </div>
-
-              <div class="d-grid">
-                <button class="btn btn-lg btn-facebook btn-login fw-bold text-uppercase" type="submit">
-                  <i class="fab fa-facebook-f me-2"></i> Sign up with Facebook
-                </button>
-              </div>
-
+                <div class="text-center p-t-136">
+                    <Link to={'/'}>
+                        login your Account?
+                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                        </Link>
+                </div>
             </form>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  </header>
-
+</div>
 
     );
 };
