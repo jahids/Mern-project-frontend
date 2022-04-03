@@ -9,17 +9,22 @@ const Register = () => {
     const [role, setrole] = useState('');
 
     const handleGetValue = async (e) => {
-        console.log(email , password, role);
+        // console.log(email , password, role);
+        e.preventDefault();
 
         try {
 
             const {data} = await axios.post('http://localhost:5000/register', {
                 email, password, role
+            }, {
+                headers : {'Content-Type' : 'application/json'},
+                withCredentials : true
             })
 
             console.log(data);
             if(data){
                 alert('user registeerd')
+                console.log(data);
             }
             
         } catch (error) {
@@ -30,7 +35,7 @@ const Register = () => {
        
 
 
-        e.preventDefault();
+       
     }
 
     return (
