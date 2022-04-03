@@ -1,14 +1,35 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
 
     const [email, setemail] = useState('');
-    const [pass, setpass] = useState('');
+    const [password, setpassword] = useState('');
     const [role, setrole] = useState('');
 
-    const handleGetValue = (e) => {
-        console.log(email, role, pass);
+    const handleGetValue = async (e) => {
+        console.log(email , password, role);
+
+        try {
+
+            const {data} = await axios.post('http://localhost:5000/register', {
+                email, password, role
+            })
+
+            console.log(data);
+            if(data){
+                alert('user registeerd')
+            }
+            
+        } catch (error) {
+            console.log(error);
+        }
+
+        
+       
+
+
         e.preventDefault();
     }
 
@@ -34,7 +55,7 @@ const Register = () => {
                 </div>
 
                 <div className="wrap-input100 validate-input" data-validate = "Password is required">
-                    <input className="input100" type="password" onChange={e=>setpass(e.target.value)} name="pass" placeholder="Password"/>
+                    <input className="input100" type="password" onChange={e=>setpassword(e.target.value)} name="pass" placeholder="Password"/>
                     <span className="focus-input100"></span>
                     <span className="symbol-input100">
                         <i className="fa fa-lock" aria-hidden="true"></i>
