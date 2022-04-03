@@ -1,12 +1,22 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
 
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
     const [role, setrole] = useState('');
+
+
+    const generateError = (err) => {
+        console.log("---",err);
+        toast.error(err, {
+            position : "bottom-right",
+        })
+    }
 
     const handleGetValue = async (e) => {
         // console.log(email , password, role);
@@ -23,8 +33,39 @@ const Register = () => {
 
             console.log(data);
             if(data){
-                alert('user registeerd')
-                console.log(data);
+
+                if(data.created){
+                    toast.success("user Create succesfully", {
+                        position : "bottom-right",
+                      
+                    })
+                }else{
+                    toast.error("plese valid email & password", {
+                        position : "bottom-right",
+                      
+                    })
+
+                }
+
+
+
+                if(data.errors){
+                    // console.log(error);
+                    // console.log(err);
+
+                    const {email , password} = data.errors;
+
+                    if(email) generateError(email);
+                    else if (password) generateError(password);
+                    else{
+
+                    }
+                }
+                // alert('user registeerd')
+                console.log(data.created);
+
+               
+               
             }
             
         } catch (error) {
@@ -95,6 +136,7 @@ const Register = () => {
             </form>
         </div>
     </div>
+    <ToastContainer />
 </div>
 
     );
