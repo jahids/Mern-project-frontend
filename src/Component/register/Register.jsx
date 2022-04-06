@@ -108,15 +108,6 @@ const Register = () => {
                     </span>
                 </div>
                 
-                <div className="wrap-input100 validate-input" data-validate = "Password is required">
-                {/* <label for="cars">Chose the role</label> */}
-                <select placeholder='Role' onChange={e=>setrole(e.target.value)}  className="input100">
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
-                </select>
-  
-                    
-                </div>
 
 
                 <div className="container-login100-form-btn">
