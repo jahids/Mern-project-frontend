@@ -4,8 +4,10 @@ import Register from "./Component/register/Register";
 import Secret from "./Component/Secret";
 import React from 'react';
 import AdminPane from "./Admin-pages/AdminPane";
-import PrivateOutlet from "./PrivateOutlet";
+import PrivateOutlet from "./Private-route/PrivateOutlet";
 import Notfound from "./Component/NOtfound/Notfound";
+import PrivateModarator from "./Private-route/PrivateModarator";
+import Modratorpages from "./Moderator-pages/Moderatorpages";
 
 function App() {
   return (
@@ -19,9 +21,10 @@ function App() {
 
       <Route path="/secret" element={<Secret/>}></Route>
       <Route path="/" element={<PrivateOutlet/>}>
-
       <Route path="Admin" element={<AdminPane/>}></Route>
-
+      </Route>
+      <Route path="/" element={<PrivateModarator/>}>
+      <Route path="moderator" element={<Modratorpages/>}></Route>
       </Route>
 
 
