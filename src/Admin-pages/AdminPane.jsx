@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import { Cookies, useCookies } from 'react-cookie';
 import { Navigate, useNavigate } from 'react-router-dom';
+import './admin.css'
 
 const AdminPane = () => {
         const navigate = useNavigate();
@@ -27,7 +28,7 @@ const AdminPane = () => {
 
       const handleDelete = (id) => {
         const {data}  =  axios.post(`http://localhost:5000/Delete/${id}`)
-        if(data){
+        if(!data){
           alert(`${id} delete succesfull`);
         }else{
           alert(`delete not sucess`);
@@ -62,15 +63,51 @@ const AdminPane = () => {
  
 
     return (
+
         <div>
             <h2>this is a admin panel </h2>
             <p>all users </p>
 
-            <table>
+
+
+<header role="banner">
+  <h1>Admin Panel</h1>
+  <ul class="utilities">
+    <br/>
+    <li class="users"><a href="#">My Account</a></li>
+    <li class="logout warn"><a href="">Log Out</a></li>
+  </ul>
+</header>
+
+<nav role='navigation'>
+  <ul class="main">
+    <li class="dashboard"><a href="admindashboard">Dashboard</a></li>
+    <li class="edit"><a href="#">Edit Website</a></li>
+    <li class="write"><a href="#">Write news</a></li>
+    <li class="comments"><a href="#">Ads</a></li>
+    <li class="users"><a href="#">Manage Users</a></li>
+  </ul>
+</nav>
+
+<main role="main">
+  
+  <section class="panel important">
+   <h2>Write Some News</h2>
+    <ul>
+      <li>Information Panel</li>
+    </ul>
+  </section>
+  
+  <section class="panel important">
+    <h2>Write a post</h2>
+     
+
+    <table>
   <tr>
     <th>id</th>
     <th>email</th>
     <th>Role</th>
+    <th>Action</th>
 
  
   </tr>
@@ -93,36 +130,24 @@ const AdminPane = () => {
       <option value="MODERATOR">Maderator</option>
       <option value="CLIENT">User</option>
       </select>
+     
+    </td>
+    <td>
       <input onClick={()=>{handlepassUpdate(infos._id)}} type="submit" value="update" />
       <input onClick={()=>{handleDelete(infos._id)}} type="submit" value="Delete" />
-    
-    </td>
-
-
-{/* 
-<form
-          action="/admin/update"
-          method="post"
-          class="manage-user-form"
-        >
-          <input type="hidden" name="id" value={infos._id} />
-          <select name="role" id="role">
-            <option value="ADMIN" { user.role === 'ADMIN' ? 'selected' : '' } >Admin</option>
-            <option value="MODERATOR" {= user.role === 'MODERATOR' ? 'selected' : '' }>Moderator</option>
-            <option value="CLIENT" { user.role === 'CLIENT' ? 'selected' : '' }>Client</option>
-          </select>
-          <input type="submit" value="update">
-        </form>
-
-
-
-</td> */}
-  </tr>
-
-      )
-    } 
+      </td>
+    </tr>
+  )}
  
-</table>
+
+ </table> 
+
+
+  </section>
+
+</main>
+
+
 
         </div>
     );
