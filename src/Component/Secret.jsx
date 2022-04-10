@@ -76,29 +76,84 @@ if(data){
     return (
         <div>
 
-<table>
+
+
+                    
+
+
+
+
+
+
+
+<header role="banner">
+  <h1>User Panel</h1>
+  <ul class="utilities">
+    <br/>
+    <li class="users">My Account</li>
+    <li class="logout warn" onClick={()=>{logout()}}> Log Out</li>
+   
+  </ul>
+</header>
+
+<nav role='navigation'>
+  <ul class="main">
+    <li class="dashboard"><a href="admindashboard">Dashboard</a></li>
+    <li class="edit"><a href="#">Edit Website</a></li>
+    <li class="write"><a href="#">Write news</a></li>
+    <li class="comments"><a href="#">Ads</a></li>
+    <li class="users"><a href="#">Manage Users</a></li>
+  </ul>
+</nav>
+
+
+<main role="main">
+  
+  <section class="panel important">
+   <h2>Write Some News</h2>
+    <ul>
+      <li>Information Panel</li>
+    </ul>
+  </section>
+  
+  <section class="panel important">
+    <h2>Write a post</h2>
+     
+
+    <table>
   <tr>
-    <th>Id</th>
-    <th>Email</th>
+    <th>id</th>
+    <th>email</th>
     <th>Role</th>
-  </tr>
-  <tr>
-    <td>{`342343`}</td> 
-    
-    <input onChange={(e)=>setvalue(e.target.value)}  type="email"  defaultValue={user.email} id="" />
+    <th>Action</th>
 
-    <td>{user.role}</td>
-  </tr>
-
-  <input onClick={handlepassUpdate} type="submit" value="update" />
  
-</table>
-            
-            <button onClick={()=>{logout()}} > logout</button>
+  </tr>
+  
 
-                      
-            <ToastContainer/>
-        </div>
+    <tr>
+    <td>{user._id}</td>
+      <td>
+    <input onChange={(e)=>setvalue(e.target.value)}  type="email"  defaultValue={user.email} id="" />
+    </td>
+    <td>{user.role}</td>
+    
+    <td>
+      <input onClick={handlepassUpdate} type="submit" value="update" />
+      </td>
+    </tr>
+ 
+
+ </table> 
+
+
+  </section>
+
+</main>
+
+<ToastContainer/>
+</div>
+
     );
 };
 
