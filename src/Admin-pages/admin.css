@@ -14,7 +14,7 @@ html {
 body {
   background: #f1f2f7;
   font-family: "Open Sans", arial, sans-serif;
-  color: darkslategray;
+  color: rgb(16, 17, 17);
 }
 
 body.login {
@@ -40,7 +40,7 @@ header[role="banner"] h1 {
   padding: 1rem;
 }
 header[role="banner"] h1:before {
-  content: "\f248";
+  /* content: "\f248"; */
   font-family: FontAwesome;
   padding-right: 0.6em;
   color: red;
@@ -60,7 +60,7 @@ header[role="banner"] .utilities li a {
 
 /* header */
 .utilities a:before {
-  content: "\f248";
+  /* content: "\f248"; */
   font-family: FontAwesome;
   padding-right: 0.6em;
 }
@@ -91,7 +91,6 @@ nav[role="navigation"] li a:hover {
   background-color: rgba(255, 255, 255, 0.05);
 }
 nav[role="navigation"] li a:before {
-  content: "\f248";
   font-family: FontAwesome;
   padding-right: 0.6em;
 }
@@ -112,7 +111,8 @@ nav[role="navigation"] .users a:before {
 }
 
 /* current nav item */
-.current, .dashboard .dashboard a,
+.current,
+.dashboard .dashboard a,
 .write .write a,
 .edit .edit a,
 .comments .comments a,
@@ -130,6 +130,9 @@ footer[role="contentinfo"] {
 
 /* panels */
 .panel {
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
   background-color: white;
   color: darkslategray;
   -webkit-border-radius: 0.3rem;
@@ -138,7 +141,8 @@ footer[role="contentinfo"] {
   border-radius: 0.3rem;
   margin: 1%;
 }
-.panel > h2, .panel > ul {
+.panel > h2,
+.panel > ul {
   margin: 1rem;
 }
 
@@ -171,7 +175,7 @@ b {
 ul,
 li {
   list-style-type: none;
-  margin: 0;
+  margin: 0px;
   padding: 0;
 }
 
@@ -399,7 +403,9 @@ td {
     clear: both;
   }
 
-  .box, .onethird, .twothirds {
+  .box,
+  .onethird,
+  .twothirds {
     padding: 1rem;
   }
 
@@ -437,4 +443,32 @@ td {
   .panel.secondary {
     width: 23%;
   }
+}
+
+li.users {
+  margin: 4px 23px 0px 10px;
+}
+
+.update {
+  margin: 10px;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  border-radius: 8px;
+  padding: 8px 18px;
+  border: none;
+  transition: box-shadow 0.2s ease 0s, transform 0.1s ease 0s;
+  background: linear-gradient(
+    to right,
+    rgb(230, 30, 77) 0%,
+    rgb(227, 28, 95) 50%,
+    rgb(215, 4, 102) 100%
+  );
+  color: #fff;
+}
+
+th.action {
+  padding: 0px 0px 13px 94px;
 }

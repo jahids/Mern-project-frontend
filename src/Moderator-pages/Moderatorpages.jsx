@@ -48,8 +48,29 @@ const Modratorpages = () => {
 
     return (
         <div>
-            <h2>this is a Moderator panel </h2>
-            
+      <header role="banner">
+  <h1>Moderator Panel</h1>
+ 
+  <ul class="utilities">
+
+ 
+    <br/>
+    <li class="users">My Account</li>
+    <li class="logout warn" > Log Out</li>
+   
+  </ul>
+</header>
+
+       
+<main role="main">
+  
+  <section class="panel important">
+   <h2>Write Some News</h2>
+    
+  </section>
+  
+  <section class="panel important">
+    <h2>Write a post</h2>     
 
             <table>
   <tr>
@@ -64,39 +85,22 @@ const Modratorpages = () => {
       {
        info && info.length > 0 &&
       info.map(infos => 
-        // <li>
-        //   {infos.email}
-        // </li>
     <tr>
     <td>{infos._id}</td>
     <td>{infos.email}</td>
     <td>{infos.role}</td>
 
 
-{/* 
-<form
-          action="/admin/update"
-          method="post"
-          class="manage-user-form"
-        >
-          <input type="hidden" name="id" value={infos._id} />
-          <select name="role" id="role">
-            <option value="ADMIN" { user.role === 'ADMIN' ? 'selected' : '' } >Admin</option>
-            <option value="MODERATOR" {= user.role === 'MODERATOR' ? 'selected' : '' }>Moderator</option>
-            <option value="CLIENT" { user.role === 'CLIENT' ? 'selected' : '' }>Client</option>
-          </select>
-          <input type="submit" value="update">
-        </form>
-
-
-
-</td> */}
   </tr>
 
       )
     } 
  
 </table>
+
+</section>
+
+</main>
 
         </div>
     )
