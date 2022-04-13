@@ -40,9 +40,16 @@ const Modratorpages = () => {
   }, [cookies, navigate]);
 
 
-    info.map(infos => {
-      console.log(infos.email)
-    })
+    // info.map(infos => {
+    //   console.log(infos.email)
+    // })
+
+    
+  const logout = () => {
+    removeCookie("jwt");
+    removeCookie("info");
+    navigate("/");
+  };
 
 
 
@@ -55,8 +62,7 @@ const Modratorpages = () => {
 
  
     <br/>
-    <li class="users">My Account</li>
-    <li class="logout warn" > Log Out</li>
+    <li onClick={()=>{logout()}} class="logout warn" > Log Out</li>
    
   </ul>
 </header>
@@ -65,12 +71,12 @@ const Modratorpages = () => {
 <main role="main">
   
   <section class="panel important">
-   <h2>Write Some News</h2>
+   <h2>Upcoming</h2>
     
   </section>
   
   <section class="panel important">
-    <h2>Write a post</h2>     
+    <h2>Moderator</h2>     
 
             <table>
   <tr>

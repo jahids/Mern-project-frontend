@@ -24,7 +24,9 @@ const Secret = () => {
     if (data) {
       alert("not updated");
     } else {
-      toast.success("Email Updated");
+      toast.success("Email Updated", {
+        position: toast.POSITION.TOP_CENTER
+      })
     }
   };
 
@@ -100,11 +102,11 @@ const Secret = () => {
 
       <main role="main">
         <section class="panel important">
-          <h2>Write Some News</h2>
+          <h2>Upcoming......</h2>
         </section>
 
         <section class="panel important">
-          <h2>Write a post</h2>
+          <h2>User</h2>
 
           <table>
             <tr>
@@ -128,7 +130,7 @@ const Secret = () => {
 
               <td>
                 <input
-                  className="pure-button pure-button-accent"
+                  className="update"
                   onClick={handlepassUpdate}
                   type="submit"
                   value="update"

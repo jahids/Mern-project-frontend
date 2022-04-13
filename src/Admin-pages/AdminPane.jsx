@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { Cookies, useCookies } from "react-cookie";
 import { Navigate, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import "./admin.css";
 
 const AdminPane = () => {
@@ -20,14 +21,23 @@ const AdminPane = () => {
     });
     // console.log(idref.value)
     // console.log(cookies.info.user);
+    if(!data){
+      toast.success("Role Updated", {
+        position: toast.POSITION.TOP_CENTER
+      })
+    }else{
+     
+    }
   };
 
   const handleDelete = (id) => {
     const { data } = axios.post(`http://localhost:5000/Delete/${id}`);
     if (!data) {
-      alert(`${id} delete succesfull`);
+      toast.error(`${id} Deleted`, {
+        position: toast.POSITION.TOP_CENTER
+      })
     } else {
-      alert(`delete not sucess`);
+      
     }
   };
 
@@ -45,10 +55,11 @@ const AdminPane = () => {
     verifyUser();
   }, [cookies, navigate]);
 
-  info.map((infos) => {
-    console.log(infos.email);
-  });
-
+  const logout = () => {
+    removeCookie("jwt");
+    removeCookie("info");
+    navigate("/");
+  };
   return (
     <div>
       <h2>this is a admin panel </h2>
@@ -58,11 +69,16 @@ const AdminPane = () => {
         <h1>Admin Panel</h1>
         <ul class="utilities">
           <br />
-          <li class="users">
-            <a href="#">My Account</a>
+
+          <li onClick={()=>{navigate('/moderator')}} class="users">
+            Moderator
           </li>
-          <li class="logout warn">
-            <a href="">Log Out</a>
+          
+          <li onClick={()=>{navigate('/secret')}} class="users">
+            user
+          </li>
+          <li onClick={()=>{logout()}} class="logout warn">
+            Log Out
           </li>
         </ul>
       </header>
@@ -70,19 +86,19 @@ const AdminPane = () => {
       <nav role="navigation">
         <ul class="main">
           <li class="dashboard">
-            <a href="admindashboard">Dashboard</a>
+            Dashboard
           </li>
           <li class="edit">
-            <a href="#">Edit Website</a>
+            Edit Website
           </li>
           <li class="write">
-            <a href="#">Write news</a>
+           Write news
           </li>
           <li class="comments">
-            <a href="#">Ads</a>
+            Ads
           </li>
           <li class="users">
-            <a href="#">Manage Users</a>
+            Manage Users
           </li>
         </ul>
       </nav>
@@ -152,6 +168,7 @@ const AdminPane = () => {
           </table>
         </section>
       </main>
+      <ToastContainer />
     </div>
   );
 };
